@@ -58,13 +58,9 @@ export default function Directors() {
 
     });
     return (
-        <Layout>
             <div >
                 <h1>This Is DIRECTORS</h1>
                 <div className="flex justify-between">{moves}</div>
             </div>
-
-
-        </Layout>
     )
 }

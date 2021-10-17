@@ -2,7 +2,6 @@ import Layout from "../components/layout";
 
 export default function Contact() {
     return(
-        <Layout>
             <div className='font-normal text-xs text-third leading-5 text-justify min-h-screen'>
               <div className='h-10'>13 Rue De Turbigo, 75002 Paris, France</div>
               <section className='h-20'>
@@ -26,6 +25,5 @@ export default function Contact() {
                   <div>Sign up for the newsletter HERE</div>
               </section>
             </div>
-        </Layout>
     )
 }

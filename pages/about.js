@@ -2,7 +2,6 @@ import Layout from "../components/layout"
 
 export default function About() {
     return (
-        <Layout>
             <div className="font-rob">
                 <div>
                     <div className="flex flex-row ">
@@ -50,6 +49,5 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </Layout>
     )
 }

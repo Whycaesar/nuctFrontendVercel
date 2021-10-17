@@ -50,7 +50,7 @@ export default function Home({ nucts }) {
 export async function getStaticProps() {
 
   //get data from api
-  const res = await fetch('http://localhost:1337/nucts/page/2');
+  const res = await fetch('http://localhost:1337/nucts');
   const nucts = await res.json();
 
   console.log(nucts);

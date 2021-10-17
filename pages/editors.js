@@ -2,7 +2,6 @@ import Layout from "../components/layout";
 
 export default function Editors() {
     return (
-        <Layout>
             <div className="font-rob">
                 <h1 className="text-l font-bold leading-10 text-secondary">MATT OSBORNE / EDITOR</h1>
                 <div className="mb-5">
@@ -95,6 +94,5 @@ export default function Editors() {
                     </div>
                 </div>
             </div>
-        </Layout>
     )
 }
