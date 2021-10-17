@@ -1,82 +1,61 @@
 import Head from 'next/head'
+import Layout, { siteTitle } from '../components/layout'
+import MarkdownIt from 'markdown-it'
 
-export default function Home() {
+export default function Home({ nucts }) {
+  const src = "https://www.youtube-nocookie.com/embed/"
+  const srx = "?controls=0?value=0SameSite=Strict";
+  const flexRow = "flex flex-row";
+  const flexRowReverse = "flex flex-row-reverse";
+  const md = new MarkdownIt();
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
+        <link rel="icon" href="/images/nuct-logo.webp" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <main className="flex flex-col w-full flex-1 text-center font-serif">
+        {
+          nucts && nucts.map((data, index) => (
+            <div className="pt-6" key={data.id}>
+              <div className={index % 2 == 0 ? flexRow : flexRowReverse}>
+                <div className="w-1/2 flex flex-col text-left text-xs text-third leading-5 font-rob">
+                  <h1 className="mb-3 font-semibold">{data.Title}</h1>
+                  <section className="h-9 font-thin text-justify prose" dangerouslySetInnerHTML={{__html: md.render(data.Content)}}></section>
+                </div>
+                <div className="flex-shrink-0 w-5"></div>
+                <div className="w-1/2">
+                  <div className="aspect-w-16 aspect-h-9">
+                    <iframe
+                      src={src + data.Link + srx}
+                      title="Tuan Tigabelas - F*ck They Say #WhenDistortionGoesUnplugged"
+                      frameBorder="0"
+                      allow="fullscreen; 
+                  
+            autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                  </div>
+                </div>
+              </div>
+              <div className="h-8 bg-white"></div>
+            </div>
+          ))
+        }
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
+    </>
   )
+}
+
+export async function getStaticProps() {
+
+  //get data from api
+  const res = await fetch('http://localhost:1337/nucts/page/2');
+  const nucts = await res.json();
+
+  console.log(nucts);
+
+  return {
+    props: { nucts }
+  };
 }

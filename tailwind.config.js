@@ -3,10 +3,46 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      typography:{
+        DEFAULT: {
+          css: {
+            'line-height': '1.25rem',
+            'font-size': '0.75rem',
+            'color': '#666',
+            'max-width': '100%',
+            a: {
+              'text-decoration': 'none',
+            }
+
+          }
+        }
+      },
+      fontFamily:{
+        rob: "'Roboto', sans-serif",
+        pre: "'Encode Sans Condensed', sans-serif",
+      },
+      textColor: theme => theme('colors'),
+      textColor: {
+        'primary': '#222',
+        'secondary': '#444',
+        'third': '#666',
+        'danger': '#e3342f',
+      },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1080px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      }
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+  ],
 }
