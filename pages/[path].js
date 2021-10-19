@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
     const { path } = params;
 
-    const res = await fetch(`http://localhost:1337/nucts?Path=${path}`);
+    const res = await fetch(process.env.APIURL + `/nucts?Path=${path}`);
     const nuct = await res.json();
     const data = nuct[0];
 

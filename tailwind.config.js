@@ -27,6 +27,7 @@ module.exports = {
         'primary': '#222',
         'secondary': '#444',
         'third': '#666',
+        'signUp': '#272727',
         'footer': '#e6e6e6',
         'danger': '#e3342f',
       },
