@@ -3,7 +3,7 @@ import Navbar from './navbar'
 
 export const siteTitle = 'Nuct Production'
 
-const Layout = ({ children }) => {
+export default function Layout  ({ children })  {
     return (
         <div className="container mx-auto">
             <Head>
@@ -39,9 +39,8 @@ const Layout = ({ children }) => {
                     </div>
                 )} */}
             </main>
-
+                
         </div>
     )
 }
 
-export default Layout
