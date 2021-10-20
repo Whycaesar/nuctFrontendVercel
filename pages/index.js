@@ -7,8 +7,8 @@ import { useRouter } from 'next/router'
 export default function Home({ nucts, page, numberOfContent }) {
   const src = "https://www.youtube-nocookie.com/embed/";
   const srx = "?controls=0?value=0SameSite=Strict";
-  const flexRow = "flex flex-row";
-  const flexRowReverse = "flex flex-row-reverse";
+  const flexRow = "md:flex md:flex-row";
+  const flexRowReverse = "md:flex md:flex-row-reverse";
   const md = new MarkdownIt();
   const router = useRouter()
   const lastPage = Math.ceil(numberOfContent / 6);
@@ -23,14 +23,14 @@ export default function Home({ nucts, page, numberOfContent }) {
         {
           nucts && nucts.map((data, index) => (
             <Link href={`/${data.Path}`} key={data.id}><a target="_blank">
-              <div className="pt-6" >
-                <div className={index % 2 == 0 ? flexRow : flexRowReverse}>
-                  <div className="w-1/2 flex flex-col text-left text-xs text-third leading-5 font-rob">
+              <div className="md:pt-6" >
+                <div className={"flex flex-col-reverse " + (index % 2 == 0 ? flexRow : flexRowReverse)} >
+                  <div className="w-full md:w-1/2 flex flex-col text-left text-xs text-third leading-5 font-rob pt-4 px-4 pb-3">
                     <h1 className="mb-3 font-semibold">{data.Title}</h1>
-                    <section className="h-9 font-thin text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.Content) }}></section>
+                    <section className="md:h-9 font-thin text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.Content) }}></section>
                   </div>
-                  <div className="flex-shrink-0 w-5"></div>
-                  <div className="w-1/2">
+                  <div className="flex-shrink-0 lg:w-5"></div>
+                  <div className="w-full md:w-1/2 pt-4 px-4 pb-3">
                     <div className="aspect-w-16 aspect-h-9">
                       <iframe
                         src={src + data.Link + srx}
@@ -40,13 +40,13 @@ export default function Home({ nucts, page, numberOfContent }) {
                     </div>
                   </div>
                 </div>
-                <div className="h-8 bg-white"></div>
+                <div className="md:h-8 bg-white"></div>
               </div>
             </a></Link>
           ))
         }
       </div>
-      <div className="mb-20 mt-20 text-footer">
+      <div className="mb-10 md:mb-20 mt-20 text-footer">
         <hr className="text-footer"></hr>
         <div className="flex flex-row justify-between p-4 text-third text-xs">
           <button onClick={() => router.push(`?page=${page - 1}`)} disabled={page <= 1}>

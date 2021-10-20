@@ -1,8 +1,7 @@
 export default function Artist({ data }) {
     const videoData = data.Nucts;
     const artistName = data.Name.toUpperCase();
-    for (let x = 0; x < videoData.length; x++) {
-    }
+
     return (
         <>
             <div className="font-rob">
@@ -14,12 +13,11 @@ export default function Artist({ data }) {
                         <li className="mr-3">CV</li>
                     </ol>
                 </div>
-                <div className="min-h-full flex my-12">
+                <div className="min-h-full flex flex-col md:flex-row my-12">
                     {
                         videoData.map((artist, index) => (
-                            <>
-                                <div className="w-4/12 mr-3 h-48" key={artist.id}>
-                                    <div>
+                            <div key={artist.id} className="pb-20 md:pb-0 md:w-4/12 md:px-0 md:mr-3 ">
+                                <div className="w-full px-2 md:h-48" >
                                         <div className="aspect-w-16 aspect-h-9">
 
                                             <iframe
@@ -30,10 +28,11 @@ export default function Artist({ data }) {
               
         autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                         </div>
-                                    </div>
+                                       
                                     <div className="w text-xs leading-5 tracking-wide text-third font-semibold">{artistName}</div>
+                                    </div>
                                 </div>
-                            </>
+                           
                         ))
                     }
                 </div>
