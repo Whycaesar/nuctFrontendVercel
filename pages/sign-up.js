@@ -17,7 +17,7 @@ const validateForm =  () => {
                     <input name="emailName"
                     className="md:text-sm lg:text-base p-3 md:w-1/5 lg:w-1/4 placeholder-gray-400 focus:placeholder-gray-100 outline-none" 
                     id="name" type="email" placeholder="Email Address"/>
-                    <button className="md:text-sm lg:text-base p-3 md:w-1/5 text-white bg-black ml-0 md:ml-2 px-10 md:px-0 mt-5 md:m-0" type="submit">SIGN UP</button>
+                    <button className="md:text-sm lg:text-base p-3 md:w-1/5 text-white bg-black ml-0 md:ml-2 px-10 md:px-0 mt-5 md:m-0" type="submit" aria-label="Right Align">SIGN UP</button>
                 </form>
             </div>
             <div className="mt-5 text-xs opacity-80 text-signUp">We respect your privacy.</div>

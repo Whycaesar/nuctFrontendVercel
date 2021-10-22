@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import MarkdownIt from 'markdown-it'
 const md = new MarkdownIt();
 
@@ -5,14 +6,22 @@ export default function Post({ data }) {
     const src = "https://www.youtube-nocookie.com/embed/"
     const srx = "?controls=0?value=0SameSite=Strict";
     return (
-        <div>
+        <>
+            <Head>
+                <title>{data.Title}</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+                <meta name="description" content={data.Title}></meta>
+                <meta name="generator" content={data.Title}></meta>
+                <meta name="og:title" content={data.Title} />
+                <meta property="og:description" content={data.Title} />
+            </Head>
             <div className="pt-14">
                 <div className="flex-col">
                     <div className="w-auto">
                         <div className="aspect-w-16 aspect-h-9">
                             <iframe
                                 src={src + data.Link + srx}
-                                title="Tuan Tigabelas - F*ck They Say #WhenDistortionGoesUnplugged"
+                                title={data.Title}
                                 frameBorder="0"
                                 allow="fullscreen; 
                             autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -25,8 +34,7 @@ export default function Post({ data }) {
                     </div>
                 </div>
             </div>
-
-        </div>
+        </>
     );
 }
 

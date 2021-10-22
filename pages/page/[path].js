@@ -1,9 +1,19 @@
+import Head from 'next/head'
+
 export default function Artist({ data }) {
     const videoData = data.Nucts;
     const artistName = data.Name.toUpperCase();
 
     return (
         <>
+        <Head>
+        <title>{artistName}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="description" content={artistName}></meta>
+        <meta name="generator" content="Creative - Collective Production"></meta>
+        <meta name="og:title" content={artistName} />
+        <meta property="og:description" content={artistName} />
+      </Head>
             <div className="font-rob">
                 <h1 className="text-l font-bold leading-10 text-secondary">{artistName} / ARTISTS</h1>
                 <div className="mb-5">

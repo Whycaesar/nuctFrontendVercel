@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { siteTitle } from '../components/layout'
 import MarkdownIt from 'markdown-it'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 export default function Home({ nucts, page, numberOfContent }) {
   const src = "https://www.youtube-nocookie.com/embed/";
@@ -13,14 +13,24 @@ export default function Home({ nucts, page, numberOfContent }) {
   const router = useRouter()
   const lastPage = Math.ceil(numberOfContent / 6);
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true)
+  }, [page])
+
   return (
     <>
       <Head>
-        <title>{siteTitle}</title>
-        <link rel="icon" href="/images/nuct-logo.webp" />
+        <title>{process.env.SITETITLE}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="description" content="Nuct is an agile creative video maker team. We specialize in commercials, branded content, social asset creation services for a diverse range of clients."></meta>
+        <meta name="generator" content="Creative - Collective Production"></meta>
+        <meta name="og:title" content={process.env.SITETITLE + " is an agile creative video maker team."} />
+        <meta property="og:description" content={process.env.SITETITLE + " specialize in commercials"} />
       </Head>
+
       <div className="flex flex-col w-full flex-1 text-center font-serif">
-        {
+        {mounted &&
           nucts && nucts.map((data, index) => (
             <Link href={`/${data.Path}`} key={data.id}><a target="_blank">
               <div className="md:pt-6" >
@@ -49,7 +59,7 @@ export default function Home({ nucts, page, numberOfContent }) {
       <div className="mb-10 md:mb-20 mt-20 text-footer">
         <hr className="text-footer"></hr>
         <div className="flex flex-row justify-between p-4 text-third text-xs">
-          <button onClick={() => router.push(`?page=${page - 1}`)} disabled={page <= 1}>
+          <button onClick={() => router.push(`?page=${page - 1}`)} disabled={page <= 1} aria-hidden="true">
             {page <= 1 ? "" : "← Newer Posts"}
           </button>
           <button onClick={() =>
@@ -72,7 +82,7 @@ export async function getServerSideProps({ query: { page = 1 } }) {
 
   const res = await fetch(process.env.APIURL + `/nucts?_limit=6&_start=${start}`);
   const data = await res.json();
-
+  
   return {
     props: {
       nucts: data,
