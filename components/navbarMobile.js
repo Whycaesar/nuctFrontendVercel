@@ -17,7 +17,7 @@ export default function NavbarMobile() {
     const noOpenNavBar = () => setOpen(open + 0);
     return (
         <>
-            <div className={showNavbar + "md:hidden p-5 flex flex-col justify-end items-center"}>
+            <div className={showNavbar + "md:hidden transition-height duration-500 ease-in-out p-5 flex flex-col justify-end items-center"}>
                 <Link href={{ pathname: '/' }}>
                     <a className="text-secondary leading-10 tracking-wider text-lg opacity-70 block" onClick={openNavBar}>
                         HOME

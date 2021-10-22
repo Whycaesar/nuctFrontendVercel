@@ -4,6 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      transitionProperty: {
+        'height': 'height',
+       },
       typography:{
         DEFAULT: {
           css: {
@@ -14,7 +17,6 @@ module.exports = {
             a: {
               'text-decoration': 'none',
             }
-
           }
         }
       },
@@ -41,7 +43,8 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
