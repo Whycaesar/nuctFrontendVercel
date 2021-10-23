@@ -29,36 +29,37 @@ export default function Home({ nucts, page, numberOfContent }) {
         <meta property="og:description" content={process.env.SITETITLE + " specialize in commercials"} />
       </Head>
 
-      <div className="flex flex-col w-full flex-1 text-center font-serif">
+      <div className="flex flex-col  w-full flex-1 text-center font-serif">
         {mounted &&
           nucts && nucts.map((data, index) => (
             <Link href={`/${data.Path}`} key={data.id}><a target="_blank">
-              <div className="md:pt-6" >
+              <div className="md:pt-6 lg:mb-10" >
                 <div className={"flex flex-col-reverse " + (index % 2 == 0 ? flexRow : flexRowReverse)} >
-                  <div className="w-full md:w-1/2 flex flex-col text-left text-xs text-third leading-5 font-rob pt-4 px-4 pb-3">
+                  <div className="w-full md:w-1/2 flex flex-col text-left text-xs dark:text-white text-third leading-5 font-rob pt-4 px-4 pb-3">
                     <h1 className="mb-3 font-semibold">{data.Title}</h1>
-                    <section className="md:h-9 font-thin text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.Content) }}></section>
+                    <section className="font-thin dark:text-gray-200 text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.Content) }}></section>
                   </div>
                   <div className="flex-shrink-0 lg:w-5"></div>
-                  <div className="w-full md:w-1/2 pt-4 px-4 pb-3">
+                  <div className="w-full md:w-1/2 pt-4 px-4 md:pt-6">
                     <div className="aspect-w-16 aspect-h-9">
                       <iframe
+                      className="rounded-lg"
                         src={src + data.Link + srx}
-                        title="Tuan Tigabelas - F*ck They Say #WhenDistortionGoesUnplugged"
+                        title={data.Title}
                         frameBorder="0"
                         allow="fullscreen; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                   </div>
                 </div>
-                <div className="md:h-8 bg-white"></div>
+                {/* <div className="md:h-8 bg-white dark:bg-black"></div> */}
               </div>
             </a></Link>
           ))
         }
       </div>
-      <div className="mb-10 md:mb-20 mt-20 text-footer">
-        <hr className="text-footer"></hr>
-        <div className="flex flex-row justify-between p-4 text-third text-xs">
+      <div className="mb-10 md:mb-20 mt-20 text-footer dark:text-gray-200">
+        <hr className="text-footer dark:text-white"></hr>
+        <div className="flex flex-row justify-between p-4 text-third text-xs dark:text-gray-200">
           <button onClick={() => router.push(`?page=${page - 1}`)} disabled={page <= 1} aria-hidden="true">
             {page <= 1 ? "" : "← Newer Posts"}
           </button>
@@ -68,7 +69,7 @@ export default function Home({ nucts, page, numberOfContent }) {
             {page >= lastPage ? "" : "Older Posts →"}
           </button>
         </div>
-        <hr></hr>
+        <hr className="text-footer dark:text-white"></hr>
       </div>
     </>
   )

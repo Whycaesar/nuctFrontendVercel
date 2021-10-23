@@ -20,6 +20,7 @@ export default function Post({ data }) {
                     <div className="w-auto">
                         <div className="aspect-w-16 aspect-h-9">
                             <iframe
+                                className="rounded-lg"
                                 src={src + data.Link + srx}
                                 title={data.Title}
                                 frameBorder="0"
@@ -27,10 +28,10 @@ export default function Post({ data }) {
                             autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     </div>
-                    <div className="h-8 bg-white"></div>
-                    <div className="w-auto flex flex-col text-left text-xs text-third leading-5 font-rob pb-60">
+                    <div className="h-8 bg-white dark:bg-black"></div>
+                    <div className="w-auto flex flex-col text-left text-xs text-third dark:text-white leading-5 font-rob pb-60">
                         <h1 className="mb-3 font-semibold">{data.Title}</h1>
-                        <section className="h-9 font-thin text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.Content) }}></section>
+                        <section className="h-9 font-thin text-justify prose dark:text-gray-200" dangerouslySetInnerHTML={{ __html: md.render(data.Content) }}></section>
                     </div>
                 </div>
             </div>

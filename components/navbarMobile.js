@@ -35,7 +35,7 @@ export default function NavbarMobile() {
                 </Link>
                 <Link href={{ pathname: '/portofolio' }}>
                     <a className="text-secondary leading-10 tracking-wider text-lg opacity-70 block" onClick={openNavBar}>
-                        PORTOFOLIO
+                        PORTFOLIO
                     </a>
                 </Link>
                 <Link href={{ pathname: '/contact' }}>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Navbar() {
     return (
         <>
-            <div className="hidden md:flex flex-row md:max-w-3xl md:justify-center lg:max-w-screen-lg h-28 lg:justify-between m-auto pt-2 md:px-3">
+            <div className="hidden dark:bg-black md:flex flex-row md:max-w-3xl md:justify-center lg:max-w-screen-lg h-28 lg:justify-between m-auto pt-2 md:px-3">
                 <div className="h-28 w-5/12 mt-5">
                     <Link href={{ pathname: '/' }}>
                         <a>
@@ -19,7 +19,7 @@ export default function Navbar() {
                     </Link>
                 </div>
                 <div className="h-28 mt-5 w-7/12">
-                    <ol className=" flex flex-row h-28 tracking-widest leading-4 justify-between mt-8 font-pre text-secondary">
+                    <ol className=" flex flex-row h-28 tracking-widest leading-4 justify-between mt-8 font-pre dark:text-gray-200 text-secondary">
                         <li className=" pt-6 text-xs">
                             <Link href={{ pathname: '/' }}>
                                 <a className="transition duration-200 transform hover:opacity-50">
@@ -44,7 +44,7 @@ export default function Navbar() {
                         <li className=" pt-6 text-xs">
                             <Link href={{ pathname: '/portofolio' }}>
                                 <a className="transition duration-200 transform hover:opacity-50">
-                                    PORTOFOLIO
+                                    PORTFOLIO
                                 </a>
                             </Link>
                         </li>

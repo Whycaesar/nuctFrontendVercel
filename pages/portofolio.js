@@ -13,9 +13,9 @@ import saladPortofolio from '/public/images/salad.jpg'
 export default function Editors() {
     return (
         <div className="font-rob flex flex-col pb-20">
-            <h1 className="text-lg pl-3 md:pl-0 font-bold leading-10 text-secondary">NUCT / PORTFOLIO</h1>
+            <h1 className="text-lg pl-3 md:pl-0 font-bold leading-10 text-secondary dark:text-gray-200">NUCT / PORTFOLIO</h1>
             <div className="mb-10 pl-3 md:pl-0 md:mb-5">
-                <ol className="flex flex-row w text-xs text-third leading-5">
+                <ol className="flex flex-row w text-xs text-third leading-5 dark:text-gray-200">
                     <a href="#" target="_blank"><li className="mr-3">ARCHIVE</li></a>
                     <a href="#" target="_blank"><li className="mr-3">WEBSITE</li></a>
                     <a href="#" target="_blank"><li className="mr-3">CV</li></a>
@@ -32,7 +32,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">UPDRADE POTENSIMU</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">UPDRADE POTENSIMU</div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:mx-3">
                     <a href="https://www.youtube.com/watch?v=mXYdo90vEp4" target="_blank">
@@ -44,7 +44,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">CHRISTMAS & NEW YEAR 2019</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">CHRISTMAS & NEW YEAR 2019</div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:ml-3">
                     <a href="https://www.youtube.com/watch?v=3VSdGOEbVqI" target="_blank">
@@ -56,7 +56,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">THE CREST AT WEST VISTA</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">THE CREST AT WEST VISTA</div>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-between md:mb-10">
@@ -70,7 +70,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">CHINESE NEW YEAR 2019</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">CHINESE NEW YEAR 2019</div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:mx-3">
                     <a href="https://www.youtube.com/watch?v=RMUTRzUO9xA" target="_blank">
@@ -82,7 +82,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">BERBAGI MIMPI DI PESISIR NEGERI</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">BERBAGI MIMPI DI PESISIR NEGERI</div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:ml-3">
                     <a href="https://www.youtube.com/watch?v=1i47BGx_mcI" target="_blank">
@@ -94,7 +94,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold">TELKOM NEUCENTRIX</div>
+                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">TELKOM NEUCENTRIX</div>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-between md:mb-10">
@@ -108,7 +108,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold">THEMATIC WAISAK</div>
+                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">THEMATIC WAISAK</div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:mx-3">
                     <a href="https://www.youtube.com/watch?v=EYU2t0gaAd0" target="_blank">
@@ -120,7 +120,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">RUMAH MIMPI</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">RUMAH MIMPI</div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:ml-3">
                     <a href="https://www.youtube.com/watch?v=SLX6quwnbJw" target="_blank">
@@ -132,7 +132,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">TELKOMSEL 4G LTE - PROFESSIONAL</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">TELKOMSEL 4G LTE - PROFESSIONAL</div>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-between md:mb-10">
@@ -146,7 +146,7 @@ export default function Editors() {
                             priority
                         />
                     </a>
-                    <div className="text-xs leading-5 tracking-wide text-third font-semibold">THERAGRAN MULTIVITAMIN</div>
+                    <div className="text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">THERAGRAN MULTIVITAMIN</div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:mx-3">
                     {/* <Image
@@ -155,7 +155,7 @@ export default function Editors() {
                         height={800}
                         placeholder="blur"
                     /> */}
-                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold"></div>
+                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200"></div>
                 </div>
                 <div className="w-full mt-10 md:mt-0 md:w-4/12 md:ml-3">
                     {/* <Image
@@ -164,7 +164,7 @@ export default function Editors() {
                         height={800}
                         placeholder="blur"
                     /> */}
-                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold"></div>
+                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200"></div>
                 </div>
             </div>
         </div>

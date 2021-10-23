@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Contact() {
     return (
-        <div className='font-normal pt-10 md:pt-0 px-5 md:px-0 text-xs text-third leading-5 text-justify min-h-screen'>
+        <div className='font-normal pt-10 md:pt-0 px-5 md:px-0 text-xs text-third leading-5 text-justify min-h-screen dark:text-gray-200'>
             <div className="md:mb-10">
             <div>Eleven Trees Complex</div>
             <div>Jl. Intan Ujung No 11, Cilandak</div>

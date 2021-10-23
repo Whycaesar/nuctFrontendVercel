@@ -4,7 +4,7 @@ export default function Directors({ data }) {
     return( 
     <div className="flex flex-col md:flex-row flex-wrap md:justify-around justify-center items-center overscroll-contain py-12 w-full">
         {data && data.map((nuct) => (
-            <h1 className="text-third font-sans px-8 py-2 m-2 leading-4 text-lg md:text-base lett tracking-normal font-normal"
+            <h1 className="dark:text-gray-200 text-third font-sans px-8 py-2 m-2 leading-4 text-lg md:text-base lett tracking-normal font-normal"
                 key={nuct.id}>
                 <Link href={`/page/${nuct.Path}`} >
                     <a>
