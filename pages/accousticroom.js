@@ -18,7 +18,7 @@ export default function Directors({ data }) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch(process.env.APIURL + `/artists`);
+    const res = await fetch(process.env.APIURL + `/artists?_sort=Name:ASC`);
     const data = await res.json();
     
     return {

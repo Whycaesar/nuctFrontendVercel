@@ -32,7 +32,7 @@ export default function Home({ nucts, page, numberOfContent }) {
       <div className="flex flex-col  w-full flex-1 text-center font-serif">
         {mounted &&
           nucts && nucts.map((data, index) => (
-            <Link href={`/${data.Path}`} key={data.id}><a target="_blank">
+            <Link href={`/${data.Path}`} key={data.NumberHome}><a target="_blank">
               <div className="md:pt-6 lg:mb-10" >
                 <div className={"flex flex-col-reverse " + (index % 2 == 0 ? flexRow : flexRowReverse)} >
                   <div className="w-full md:w-1/2 flex flex-col text-left text-xs dark:text-white text-third leading-5 font-rob pt-4 px-4 pb-3">
@@ -81,8 +81,8 @@ export async function getServerSideProps({ query: { page = 1 } }) {
   const numberOfContentResponse = await fetch(process.env.APIURL + `/nucts/count`);
   const numberOfContent = await numberOfContentResponse.json();
 
-  const res = await fetch(process.env.APIURL + `/nucts?_limit=6&_start=${start}`);
-  const data = await res.json();
+  const res = await fetch(process.env.APIURL + `/nucts?_sort=NumberHome:DESC&_limit=6&_start=${start}`);
+  const data = await res.json();                           
   
   return {
     props: {
