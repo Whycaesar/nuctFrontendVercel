@@ -76,12 +76,12 @@ export default function Home({ nucts, page, numberOfContent }) {
 }
 
 export async function getServerSideProps({ query: { page = 1 } }) {
-  const start = +page === 1 ? 0 : (+page - 1) * 6
+  const start = +page === 1 ? 0 : (+page - 1) * 8
 
   const numberOfContentResponse = await fetch(process.env.APIURL + `/nucts/count`);
   const numberOfContent = await numberOfContentResponse.json();
 
-  const res = await fetch(process.env.APIURL + `/nucts?_sort=NumberHome:DESC&_limit=6&_start=${start}`);
+  const res = await fetch(process.env.APIURL + `/nucts?_sort=NumberHome:DESC&_limit=8&_start=${start}`);
   const data = await res.json();                           
   
   return {

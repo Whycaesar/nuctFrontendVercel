@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     const selectTheme = (value) => {
         localStorage.setItem('theme', value)
         document.querySelector('html').classList.add(localStorage.getItem('theme'))
-        if(value === 'dark') {
+        if (value === 'dark') {
             document.querySelector('html').classList.remove('light')
         } else {
             document.querySelector('html').classList.remove('dark')
@@ -32,18 +32,19 @@ export default function Layout({ children }) {
                 <meta property="og:description" content={process.env.SITETITLE + " specialize in commercials"} />
             </Head>
             <main className="dark:bg-black">
-            <NavbarMobile />
-            <Navbar />
-            <div className="bg-white dark:bg-black antialiased container mx-auto flex flex-col min-h-screen md:pt-5 md:max-w-3xl lg:max-w-screen-lg md:m-auto md:px-3">
-                <div className="flex justify-end my-10 lg:my-0">
-                    <button onClick={() => selectTheme('light')} className="w-5 h-5 bg-gray-200 rounded-full mr-5" aria-label="Left Align"></button>
-                    <button onClick={() => selectTheme('dark')}className="w-5 h-5  bg-gray-800 rounded-full mr-5" aria-label="Right Align"></button>
+                <NavbarMobile />
+                <Navbar />
+                <div className="bg-white dark:bg-black antialiased container mx-auto flex flex-col min-h-screen md:pt-5 md:max-w-3xl lg:max-w-screen-lg md:m-auto md:px-3">
+                    <div className="flex justify-end my-10 lg:my-0">
+                        <button onClick={() => selectTheme('light')}
+                            className="w-5 h-5 bg-gray-200 rounded-full mr-5" aria-label="Left Align"></button>
+                        <button onClick={() => selectTheme('dark')}
+                            className="w-5 h-5  bg-gray-800 rounded-full mr-5" aria-label="Right Align"></button>
+                    </div>
+                    {children}
                 </div>
-                {children}
-            </div>
             </main>
         </>
     )
 }
 
- 
