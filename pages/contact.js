@@ -9,12 +9,12 @@ export default function Contact() {
             <div>Jakarta Selatan 12430</div>
             </div>
             <section className='pt-5 md:pt-0 h-20'>
-                <div><b>ALI NUGRAHA</b> / partner / owner and founder</div>
+                <div><a href="https://www.instagram.com/alsnugraha/" target="_blank"><b>ALI NUGRAHA</b></a>  / partner / owner and founder</div>
                 <div>ali@nuct.co</div>
                 <div>+62 818 419 149</div>
             </section>
             <section className='pt-5 md:pt-0 h-20'>
-                <div><b>BINTANG NITINEGORO</b> / partner / head of production</div>
+                <div><a href="https://www.instagram.com/bintangniti/" target="_blank"><b>BINTANG NITINEGORO</b></a> / partner / head of production</div>
                 <div>bintang@nuct.co</div>
                 <div>+62 877 7633 0415</div>
             </section>
