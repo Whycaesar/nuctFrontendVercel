@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     SITETITLE: "Nuct Creative Production",
-    APIURL: "http://localhost:1337",
+    APIURL: "http://localhost:1337/api",
   },
   devIndicators: {
     buildActivity: false

@@ -12,6 +12,7 @@ export default function Home({ nucts, page, numberOfContent }) {
   const md = new MarkdownIt();
   const router = useRouter()
   const lastPage = Math.ceil(numberOfContent / 6);
+  const dataAll = nucts.data;
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -30,22 +31,27 @@ export default function Home({ nucts, page, numberOfContent }) {
       </Head>
 
       <div className="flex flex-col  w-full flex-1 text-center font-serif">
+
+        {/* {console.log(dataAll[0].attributes.Title)} */}
+        {console.log(dataAll)}
+
+
         {mounted &&
-          nucts && nucts.map((data, index) => (
-            <Link href={`/${data.Path}`} key={data.NumberHome}><a target="_blank">
+          dataAll && dataAll.map((data, index) => (
+            <Link href={`/${data.attributes.Path}`} key={data.attributes.NumberHome}><a target="_blank">
               <div className="md:pt-6 lg:mb-10" >
                 <div className={"flex flex-col-reverse " + (index % 2 == 0 ? flexRow : flexRowReverse)} >
                   <div className="w-full md:w-1/2 flex flex-col text-left text-xs dark:text-white text-third leading-5 font-rob pt-4 px-4 pb-3">
-                    <h1 className="mb-3 font-semibold">{data.Title}</h1>
-                    <section className="font-thin dark:text-gray-200 text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.Content) }}></section>
+                    <h1 className="mb-3 font-semibold">{data.attributes.Title}</h1>
+                    <section className="font-thin dark:text-gray-200 text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.attributes.Content) }}></section>
                   </div>
                   <div className="flex-shrink-0 lg:w-5"></div>
                   <div className="w-full md:w-1/2 pt-4 px-4 md:pt-6">
                     <div className="aspect-w-16 aspect-h-9">
                       <iframe
-                      className="rounded-lg"
-                        src={src + data.Link + srx}
-                        title={data.Title}
+                        className="rounded-lg"
+                        src={src + data.attributes.Link + srx}
+                        title={data.attributes.Title}
                         frameBorder="0"
                         allow="fullscreen; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
@@ -76,14 +82,15 @@ export default function Home({ nucts, page, numberOfContent }) {
 }
 
 export async function getServerSideProps({ query: { page = 1 } }) {
+
   const start = +page === 1 ? 0 : (+page - 1) * 8
 
   const numberOfContentResponse = await fetch(process.env.APIURL + `/nucts/count`);
   const numberOfContent = await numberOfContentResponse.json();
 
-  const res = await fetch(process.env.APIURL + `/nucts?_sort=NumberHome:DESC&_limit=8&_start=${start}`);
-  const data = await res.json();                           
-  
+  const res = await fetch(process.env.APIURL + `/nucts?sort[0]=NumberHome%3Adesc&pagination[start]=${start}&pagination[limit]=8`);
+  const data = await res.json();
+
   return {
     props: {
       nucts: data,
