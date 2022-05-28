@@ -33,7 +33,7 @@ export default function Post({ artist }) {
                     <div className="h-8 bg-white dark:bg-black"></div>
                     <div className="w-auto flex flex-col text-left text-xs text-third dark:text-white leading-5 font-rob pb-60">
                         <h1 className="mb-3 font-semibold">{data.attributes.Title}</h1>
-                        <section className="h-9 font-thin text-justify prose dark:text-gray-200" dangerouslySetInnerHTML={{ __html: md.render(data.attributes.Content) }}></section>
+                        <section className="h-auto font-thin text-justify prose dark:text-gray-200" dangerouslySetInnerHTML={{ __html: md.render(data.attributes.Content) }}></section>
                     </div>
                 </div>
             </div>
@@ -43,13 +43,13 @@ export default function Post({ artist }) {
 
 // tell nextJs how many there are
 export async function getStaticPaths() {
-    const res = await fetch(process.env.APIURL + "/nucts");
+    const res = await fetch(process.env.APIURL + "/nucts?pagination[page]=1&pagination[pageSize]=1000");
     const postsAll = await res.json();
     const posts = postsAll.data;
 
     // console.log(postsAll.data)
     const paths = posts.map((data) => ({
-        params: { path: JSON.parse(JSON.stringify(data.id)).toString() },
+        params: { path: JSON.parse(JSON.stringify(data.attributes.Slug)).toString() },
     }));
 
     console.log(paths)

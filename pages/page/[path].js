@@ -1,8 +1,14 @@
 import Head from 'next/head'
 
-export default function Artist({ data }) {
+export default function Artist({ artist }) {
+    console.log("artist nih atas " + JSON.stringify(artist))
+    const data = artist.data;
     const videoData = data.Nucts;
-    const artistName = data.Name.toUpperCase();
+    const artistName = data.Name;
+
+    console.log('data atas ' + data.id)
+    console.log('data atas nama ' + data.attributes.Name)
+    console.log('data atas path ' + data.attributes.Path)
 
     return (
         <>
@@ -54,29 +60,30 @@ export default function Artist({ data }) {
 
 // tell nextJs how many there are
 export async function getStaticPaths() {
-    const res = await fetch(process.env.APIURL + `/artists`);
-    const posts = await res.json();
+    const res = await fetch(process.env.APIURL + "/artists?pagination[page]=1&pagination[pageSize]=1000");
+    const postsAll = await res.json();
+    const posts = postsAll.data;
 
+    // console.log(postsAll.data)
     const paths = posts.map((data) => ({
-        params: { path: data.Path },
+        params: { path: JSON.parse(JSON.stringify(data.attributes.Path)).toString() },
     }));
 
+    // console.log(paths)
     return {
         paths,
         fallback: false,
     };
 }
 
-// for each infividual page: get the data for that page
-export async function getStaticProps({ params }) {
-    const { path } = params;
-
-    const res = await fetch(process.env.APIURL + `/artists?Path=${path}`);
-    const nuct = await res.json();
-    const data = nuct[0]
+export const getStaticProps = async (context) => {
+    console.log(context)
+    const path = context.params.path;
+    console.log("path nih " + path)
+    const res = await fetch(process.env.APIURL + "/artist/page/" + path);
+    const pathArtist = await res.json();
 
     return {
-        props: { data },
-    };
+        props: { artist: pathArtist }
+    }
 }
-

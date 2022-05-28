@@ -34,7 +34,7 @@ export default function Home({ nucts, page, numberOfContent }) {
 
         {mounted &&
           dataAll && dataAll.map((data, index) => (
-            <Link href={`/${data.id}`} key={data.attributes.NumberHome}><a target="_blank">
+            <Link href={`/${data.attributes.Slug}`} key={data.id}><a target="_blank">
               <div className="md:pt-6 lg:mb-10" >
                 <div className={"flex flex-col-reverse " + (index % 2 == 0 ? flexRow : flexRowReverse)} >
                   <div className="w-full md:w-1/2 flex flex-col text-left text-xs dark:text-white text-third leading-5 font-rob pt-4 px-4 pb-3">
