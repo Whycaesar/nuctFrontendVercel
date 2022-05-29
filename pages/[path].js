@@ -6,7 +6,7 @@ export default function Post({ artist }) {
     const src = "https://www.youtube-nocookie.com/embed/"
     const srx = "?controls=0?value=0SameSite=Strict";
     const data = artist.data;
-    console.log('data atas ' + data.id)
+    console.log('data atas ' + data)
     return (
         <>
             <Head>

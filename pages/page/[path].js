@@ -2,11 +2,13 @@ import Head from 'next/head'
 
 export default function Artist({ artist }) {
     console.log("artist nih atas " + JSON.stringify(artist))
-    const data = artist.data;
-    const videoData = data.Nucts;
-    const artistName = data.Name;
+    const dataAll = artist.data;
+    const data = dataAll[0]
+    console.log(data.attributes.nucts.data)
+    const videoData = data.attributes.nucts.data;
+    const artistName = data.attributes.Name.toUpperCase();
 
-    console.log('data atas ' + data.id)
+    
     console.log('data atas nama ' + data.attributes.Name)
     console.log('data atas path ' + data.attributes.Path)
 
@@ -32,21 +34,21 @@ export default function Artist({ artist }) {
                 <div className="min-h-full flex flex-col md:flex-row my-12">
                     {
                         videoData.map((artist, index) => (
-                            <div key={artist.id} className="pb-20 md:pb-0 md:w-4/12 md:px-0 md:mr-3 ">
+                            <div key={artist.attributes.id} className="pb-20 md:pb-0 md:w-4/12 md:px-0 md:mr-3 ">
                                 <div className="w-full px-2 md:h-48" >
                                     <div className="aspect-w-16 aspect-h-9">
 
                                         <iframe
                                             className="rounded-lg"
-                                            src={"https://www.youtube-nocookie.com/embed/" + artist.Link + "?controls=0?value=0"}
-                                            title={artist.Title}
+                                            src={"https://www.youtube-nocookie.com/embed/" + artist.attributes.Link + "?controls=0?value=0"}
+                                            title={artist.attributes.Title}
                                             frameBorder="0"
                                             allow="fullscreen; 
               
         autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                                     </div>
 
-                                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">{artistName}</div>
+                                    <div className="w text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">{artist.attributes.Title}</div>
                                 </div>
                             </div>
 
@@ -80,7 +82,7 @@ export const getStaticProps = async (context) => {
     console.log(context)
     const path = context.params.path;
     console.log("path nih " + path)
-    const res = await fetch(process.env.APIURL + "/artist/page/" + path);
+    const res = await fetch(process.env.APIURL + `/artists?filters[Path][$eq]=${path}&populate=*`);
     const pathArtist = await res.json();
 
     return {
