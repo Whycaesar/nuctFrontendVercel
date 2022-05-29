@@ -11,7 +11,7 @@ export default function Home({ nucts, page, numberOfContent }) {
   const flexRowReverse = "md:flex md:flex-row-reverse";
   const md = new MarkdownIt();
   const router = useRouter()
-  const lastPage = Math.ceil(numberOfContent / 6);
+  const lastPage = Math.ceil(numberOfContent / 7);
   const dataAll = nucts.data;
 
   const [mounted, setMounted] = useState(false);
@@ -79,12 +79,14 @@ export default function Home({ nucts, page, numberOfContent }) {
 
 export async function getServerSideProps({ query: { page = 1 } }) {
 
-  const start = +page === 1 ? 0 : (+page - 1) * 8
+  const start = +page === 1 ? 0 : (+page - 1) * 7
 
   const numberOfContentResponse = await fetch(process.env.APIURL + `/nucts/count`);
   const numberOfContent = await numberOfContentResponse.json();
 
-  const res = await fetch(process.env.APIURL + `/nucts?sort[0]=NumberHome%3Adesc&pagination[start]=${start}&pagination[limit]=8`);
+  console.log("number of content" + numberOfContent)
+
+  const res = await fetch(process.env.APIURL + `/nucts?sort[0]=NumberHome%3Adesc&pagination[start]=${start}&pagination[limit]=7`);
   const data = await res.json();
 
   return {
