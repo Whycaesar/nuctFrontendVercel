@@ -1,10 +1,8 @@
 import Head from 'next/head'
 
 export default function Artist({ artist }) {
-    console.log("artist nih atas " + JSON.stringify(artist))
     const dataAll = artist.data;
     const data = dataAll[0]
-    console.log(data.attributes.nucts.data)
     const videoData = data.attributes.nucts.data;
     const artistName = data.attributes.Name.toUpperCase();
 
@@ -66,12 +64,10 @@ export async function getStaticPaths() {
     const postsAll = await res.json();
     const posts = postsAll.data;
 
-    // console.log(postsAll.data)
     const paths = posts.map((data) => ({
         params: { path: JSON.parse(JSON.stringify(data.attributes.Path)).toString() },
     }));
 
-    // console.log(paths)
     return {
         paths,
         fallback: false,
@@ -81,7 +77,6 @@ export async function getStaticPaths() {
 export const getStaticProps = async (context) => {
     console.log(context)
     const path = context.params.path;
-    console.log("path nih " + path)
     const res = await fetch(process.env.APIURL + `/artists?filters[Path][$eq]=${path}&populate=*`);
     const pathArtist = await res.json();
 

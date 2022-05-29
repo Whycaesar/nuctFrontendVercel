@@ -3,10 +3,11 @@ import MarkdownIt from 'markdown-it'
 const md = new MarkdownIt();
 
 export default function Post({ artist }) {
+
+    console.log(artist)
     const src = "https://www.youtube-nocookie.com/embed/"
     const srx = "?controls=0?value=0SameSite=Strict";
     const data = artist.data;
-    console.log('data atas ' + data)
     return (
         <>
             <Head>
@@ -47,7 +48,6 @@ export async function getStaticPaths() {
     const postsAll = await res.json();
     const posts = postsAll.data;
 
-    // console.log(postsAll.data)
     const paths = posts.map((data) => ({
         params: { path: JSON.parse(JSON.stringify(data.attributes.Slug)).toString() },
     }));
@@ -60,32 +60,25 @@ export async function getStaticPaths() {
 }
 
 // for each infividual page: get the data for that page
-// export async function getStaticProps({ params }) {
-//     const { path } = params;
-//     console.log("pathss    " + path)
-//     const res = await fetch(process.env.APIURL + '/nucts?' + path);
-//     const nuct = await res.json();
-//     console.log('pparams' + params)
-//     // console.log(nuct.data.Path[path])
-//     const data = JSON.stringify(nuct);
+export async function getStaticProps({ params }) {
+    const path  = params.path;
+    const res = await fetch(process.env.APIURL + "/nucts/" + path);
+const pathArtist = await res.json();
 
-//     console.log(data)
+return {
+    props: { artist: pathArtist }
+}
+
+}
+
+// export const getStaticProps = async (context) => {
+//     console.log(context)
+//     const path = context.params.path;
+//     console.log("path nih " + path)
+//     const res = await fetch(process.env.APIURL + "/nucts/" + path);
+//     const pathArtist = await res.json();
 
 //     return {
-//         props: { data },
-//     };
-
-
+//         props: { artist: pathArtist }
+//     }
 // }
-
-export const getStaticProps = async (context) => {
-    console.log(context)
-    const path = context.params.path;
-    console.log("path nih " + path)
-    const res = await fetch(process.env.APIURL + "/nucts/" + path);
-    const pathArtist = await res.json();
-
-    return {
-        props: { artist: pathArtist }
-    }
-}
