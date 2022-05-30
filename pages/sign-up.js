@@ -6,6 +6,7 @@ export default function SignUp() {
     const [emailAddress, setEmailAddress] = useState('');
 
 const submitSubscribe = async event => {
+    console.log(result.Firstname)
     event.preventDefault()
     const res = await fetch(process.env.APIURL + '/subscribes', {
       body: JSON.stringify({
@@ -34,14 +35,14 @@ const submitSubscribe = async event => {
                 <form className="flex flex-col md:flex-row" name="myForm" onSubmit={submitSubscribe} >
                     <input name="firstName" 
                         className="md:text-sm lg:text-base p-3 md:w-1/5 lg:w-1/4 placeholder-gray-400 focus:placeholder-gray-100 outline-none"
-                        id="name" type="text" name="Firstname" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value), {passive:true}} />
+                        id="name" type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                     <input name="lastName"
                         className="md:text-sm lg:text-base p-3 md:w-1/5  lg:w-1/4 placeholder-gray-400 focus:placeholder-gray-100 outline-none my-3 md:my-0 md:mx-3"
-                        id="name" type="text" name="Lastname" placeholder="Last Name" value={lastName}  onChange={(e) => setLastName(e.target.value), {passive:true}} />
+                        id="name" type="text" placeholder="Last Name" value={lastName}  onChange={(e) => setLastName(e.target.value)} />
                     <input name="emailName"
                         className="md:text-sm lg:text-base p-3 md:w-1/5 lg:w-1/4 placeholder-gray-400 focus:placeholder-gray-100 outline-none"
-                        id="name" type="email" name="Email" placeholder="Email Address" value={emailAddress} onChange={(e) => setEmailAddress(e.target.value), {passive:true}} />
-                    <button
+                        id="name" type="email" placeholder="Email Address" value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)} />
+                    <button 
                         className="md:text-sm lg:text-base p-3 md:w-1/5 text-white bg-black ml-0 md:ml-2 px-10 md:px-0 mt-5 md:m-0"
                         type="submit" aria-label="Right Align">
                         SIGN UP

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import MarkdownIt from 'markdown-it'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import Loader from "react-loader-spinner";
+
 
 export default function Home({ nucts, page, numberOfContent }) {
   const src = "https://www.youtube-nocookie.com/embed/";
