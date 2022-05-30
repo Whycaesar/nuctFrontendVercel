@@ -9,6 +9,7 @@
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
+    "@tanem/react-nprogress": "^5.0.0",
     "@types/react": "^17.0.31",
     "markdown-it": "^12.2.0",
     "next": "latest",
@@ -17,10 +18,13 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-loader-spinner": "^6.0.0-0",
     "sharp": "^0.29.2",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
+    "@types/node": "^17.0.36",
     "autoprefixer": "^10.2.6",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.8"

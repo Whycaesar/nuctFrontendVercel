@@ -3,6 +3,7 @@ import Link from 'next/link'
 import MarkdownIt from 'markdown-it'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import Loader from "react-loader-spinner";
 
 export default function Home({ nucts, page, numberOfContent }) {
   const src = "https://www.youtube-nocookie.com/embed/";
@@ -30,10 +31,13 @@ export default function Home({ nucts, page, numberOfContent }) {
         <meta property="og:description" content={process.env.SITETITLE + " specialize in commercials"} />
       </Head>
 
+
       <div className="flex flex-col  w-full flex-1 text-center font-serif">
+
 
         {mounted &&
           dataAll && dataAll.map((data, index) => (
+            
             <Link href={`/${data.attributes.Slug}`} key={data.id}><a target="_blank">
               <div className="md:pt-6 lg:mb-10" >
                 <div className={"flex flex-col-reverse " + (index % 2 == 0 ? flexRow : flexRowReverse)} >
@@ -44,6 +48,7 @@ export default function Home({ nucts, page, numberOfContent }) {
                   <div className="flex-shrink-0 lg:w-5"></div>
                   <div className="w-full md:w-1/2 pt-4 px-4 md:pt-6">
                     <div className="aspect-w-16 aspect-h-9">
+                    
                       <iframe
                         className="rounded-lg"
                         src={src + data.attributes.Link + srx}
