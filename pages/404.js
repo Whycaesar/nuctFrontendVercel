@@ -12,7 +12,7 @@ export default function Custom404({desc= "the page you seek does not exist", err
                     HOME
                     <span className="hover:w-4/6 hover:h-4/6"></span>
                 </a>
-                <p className="legal mt-8 md:mt-0">copyright &copy; 2021&nbsp;-&nbsp;Made by &#128420;</p>
+                <p className="legal mt-8 md:mt-0">copyright &copy; 2022&nbsp;-&nbsp;Made by &#128420;</p>
             </div>
         </div>
     </div>
