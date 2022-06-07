@@ -5,20 +5,10 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 
-export default function Home({ nucts, page, numberOfContent }) {
-  const src = "https://www.youtube-nocookie.com/embed/";
-  const srx = "?controls=0?value=0SameSite=Strict";
-  const flexRow = "md:flex md:flex-row";
-  const flexRowReverse = "md:flex md:flex-row-reverse";
-  const md = new MarkdownIt();
-  const router = useRouter()
-  const lastPage = Math.ceil(numberOfContent / 7);
-  const dataAll = nucts.data;
+export default function Home() {
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true)
-  }, [page])
+
+
 
   return (
     <>
@@ -31,74 +21,75 @@ export default function Home({ nucts, page, numberOfContent }) {
         <meta property="og:description" content={process.env.SITETITLE + " specialize in commercials"} />
       </Head>
 
-
-      <div className="flex flex-col  w-full flex-1 text-center font-serif">
-
-
-        {mounted &&
-          dataAll && dataAll.map((data, index) => (
-            
-            <Link href={`/${data.attributes.Slug}`} key={data.id}><a target="_blank">
-              <div className="md:pt-6 lg:mb-10" >
-                <div className={"flex flex-col-reverse " + (index % 2 == 0 ? flexRow : flexRowReverse)} >
-                  <div className="w-full md:w-1/2 flex flex-col text-left text-xs dark:text-white text-third leading-5 font-rob pt-4 px-4 pb-3">
-                    <h1 className="mb-3 font-semibold">{data.attributes.Title}</h1>
-                    <section className="font-thin dark:text-gray-200 text-justify prose" dangerouslySetInnerHTML={{ __html: md.render(data.attributes.Content) }}></section>
-                  </div>
-                  <div className="flex-shrink-0 lg:w-5"></div>
-                  <div className="w-full md:w-1/2 pt-4 px-4 md:pt-6">
-                    <div className="aspect-w-16 aspect-h-9">
-                    
-                      <iframe
-                        className="rounded-lg"
-                        src={src + data.attributes.Link + srx}
-                        title={data.attributes.Title}
-                        frameBorder="0"
-                        allow="fullscreen; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                    </div>
-                  </div>
+      <div className='bg-yellow-400 h-full'>
+        <div className="flex flex-col bg-yellow-400 w-full text-center font-serif h-full">
+        <div className='static bg-white'>
+          <div className='h-screen bg-green-500 static min-w-full left-0'>
+            <div className='absolute h-screen min-w-full  left-0 bg-indigo-800'>Carousel
+            <a href="https://www.instagram.com/stories/highlights/17935669600095224/">haha</a>
+            </div>
+          </div>
+          <div className='h-16 bg-green-500 static min-w-full left-0'>
+            <div className='absolute min-w-full h-16 left-0 bg-gray-800'>Description</div>
+          </div>
+          </div>
+          <div className='relative'>
+            <div className='h-full bg-green-600 flex flex-row'>
+              <div className='w-1/3 bg-black'>
+                <div className='bg-red-900 h-32 mb-4'>Follow Nuct Records</div>
+                <div className='bg-red-200 h-96 my-4'>Shop Visit</div>
+                <div className='bg-red-700 h-56 my-4'>News</div>
+                <div className='h-52 bg-indigo-400'>Featured Video</div>
+                <div className='w-full bg-red-700 pb-1 my-4'>
+                  <div className='h-12 bg-red-600'>Upcoming Show</div>
+                  <div className='h-32 bg-gray-800'>Band Perform</div>
+                  <div className='h-32 bg-gray-300'>Band Perform</div>
+                  <div className='h-32 bg-gray-800'>Band Perform</div>
+                  <div className='h-32 bg-gray-300'>Band Perform</div>
+                  <div className='h-32 bg-gray-800'>Band Perform</div>
+                  <div className='h-32 bg-gray-300'>Band Perform</div>
                 </div>
-                {/* <div className="md:h-8 bg-white dark:bg-black"></div> */}
+                <div className='h-40 flex flex-row bg-indigo-200 my-4'>
+                  <div className='h-full w-1/5 bg-blue-800' >Logo FB</div>
+                  <div className='h-full w-4/5 bg-red-200'>isi FB</div>
+                </div>
               </div>
-            </a></Link>
-          ))
-        }
-      </div>
-      <div className="mb-10 md:mb-20 mt-20 text-footer dark:text-gray-200">
-        <hr className="text-footer dark:text-white"></hr>
-        <div className="flex flex-row justify-between p-4 text-third text-xs dark:text-gray-200">
-          <button onClick={() => router.push(`?page=${page - 1}`)} disabled={page <= 1} aria-hidden="true">
-            {page <= 1 ? "" : "← Newer Posts"}
-          </button>
-          <button onClick={() =>
-            router.push(`?page=${page + 1}`)}
-            disabled={page >= lastPage}>
-            {page >= lastPage ? "" : "Older Posts →"}
-          </button>
+              <div className='w-1/3 bg-purple-600'>Twitter</div>
+              <div className='w-1/3 bg-black '>
+                <div className='h-52 bg-indigo-800 mb-4'>Listen</div>
+                <div className='h-52 bg-indigo-400 my-4'>Featured Video</div>
+                <div className='h-40 flex flex-row bg-indigo-200'>
+                  <div className='h-full w-1/5 bg-blue-700' >Logo FB</div>
+                  <div className='h-full w-4/5 bg-red-200'>isi FB</div>
+                </div>
+                <div className='h-52 bg-indigo-400 my-4'>Featured Video</div>
+                <div className='w-full bg-red-800 pb-1 my-4'>
+                  <div className='h-12 bg-red-600 '>Featured Artist</div>
+                  <div className='h-96 bg-indigo-900'>Featured Artist</div>
+                </div>
+                <div className='h-40 flex flex-row bg-indigo-200 my-4'>
+                  <div className='h-full w-1/5 bg-blue-800' >Logo FB</div>
+                  <div className='h-full w-4/5 bg-red-200'>isi FB</div>
+                </div>
+                <div className='h-40 flex flex-row bg-indigo-200 my-4'>
+                  <div className='h-full w-1/5 bg-blue-800' >Logo FB</div>
+                  <div className='h-full w-4/5 bg-red-200'>isi FB</div>
+                </div>
+                <div className='w-full bg-red-800 pb-1 my-4'>
+                  <div className='h-12 bg-red-600'>Featured Artist</div>
+                  <div className='h-96 bg-indigo-900'>Featured Artist</div>
+                </div>
+              </div>
+            </div>
+            <div className='h-96 relative bg-blue-600'>IG Profile</div>
+            <div className='h-40'>Footer</div>
+          </div>
+
+
+
         </div>
-        <hr className="text-footer dark:text-white"></hr>
       </div>
     </>
   )
 }
 
-export async function getServerSideProps({ query: { page = 1 } }) {
-
-  const start = +page === 1 ? 0 : (+page - 1) * 7
-
-  const numberOfContentResponse = await fetch(process.env.APIURL + `/nucts/count`);
-  const numberOfContent = await numberOfContentResponse.json();
-
-  console.log("number of content" + numberOfContent)
-
-  const res = await fetch(process.env.APIURL + `/nucts?sort[0]=NumberHome%3Adesc&pagination[start]=${start}&pagination[limit]=7`);
-  const data = await res.json();
-
-  return {
-    props: {
-      nucts: data,
-      page: +page,
-      numberOfContent,
-    },
-  };
-}

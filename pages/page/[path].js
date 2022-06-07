@@ -29,10 +29,11 @@ export default function Artist({ artist }) {
                         <li className="mr-3">CV</li>
                     </ol>
                 </div>
-                <div className="min-h-full flex flex-col md:flex-row my-12">
+                <div className="min-h-full flex flex-col md:flex-row flex-w flex-wrap my-12">
                     {
                         videoData.map((artist, index) => (
-                            <div key={artist.attributes.id} className="pb-20 md:pb-0 md:w-4/12 md:px-0 md:mr-3 ">
+                            <div className='md:w-1/3 md:my-3'>
+                            <div key={artist.attributes.id} className="pb-20 md:pb-0 md:w-full md:px-0 md:mb-10">
                                 <div className="w-full px-2 md:h-48" >
                                     <div className="aspect-w-16 aspect-h-9">
 
@@ -48,6 +49,7 @@ export default function Artist({ artist }) {
 
                                     <div className="w text-xs leading-5 tracking-wide text-third font-semibold dark:text-gray-200">{artist.attributes.Title}</div>
                                 </div>
+                            </div>
                             </div>
 
                         ))

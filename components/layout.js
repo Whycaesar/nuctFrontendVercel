@@ -31,11 +31,11 @@ export default function Layout({ children }) {
                 <meta name="og:title" content={process.env.SITETITLE + " is an agile creative video maker team."} />
                 <meta property="og:description" content={process.env.SITETITLE + " specialize in commercials"} />
             </Head>
-            <main className="dark:bg-black">
+            <main className="dark:bg-black h-full">
                 <NavbarMobile />
                 <Navbar />
-                <div className="bg-white dark:bg-black antialiased container mx-auto flex flex-col min-h-screen md:pt-5 md:max-w-3xl lg:max-w-screen-lg md:m-auto md:px-3">
-                    <div className="flex justify-end my-10 lg:my-0">
+                <div className="static dark:bg-black antialiased container mx-auto flex flex-col min-h-full md:pt-5 md:max-w-3xl lg:max-w-screen-lg md:m-auto md:px-3">
+                    <div className="flex justify-end my-10 lg:my-4">
                         <button onClick={() => selectTheme('light')}
                             className="w-5 h-5 bg-gray-200 rounded-full mr-5" aria-label="Left Align"></button>
                         <button onClick={() => selectTheme('dark')}

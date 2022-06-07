@@ -35,6 +35,13 @@ export default function Navbar() {
                             </Link>
                         </li>
                         <li className=" pt-6 text-xs">
+                            <Link href={{ pathname: '/artists' }}>
+                                <a className="transition duration-200 transform hover:opacity-50">
+                                    ARTISTS
+                                </a>
+                            </Link>
+                        </li>
+                        <li className=" pt-6 text-xs">
                             <Link href={{ pathname: '/accousticroom' }}>
                                 <a className="transition duration-200 transform hover:opacity-50">
                                     ACCOUSTIC ROOM

@@ -18,7 +18,7 @@ export default function Post({ artist }) {
                 <meta name="og:title" content={data.attributes.Title} />
                 <meta property="og:description" content={data.attributes.Title} />
             </Head>
-            <div className="pt-14">
+            <div className="pt-14 ">
                 <div className="flex-col">
                     <div className="w-auto">
                         <div className="aspect-w-16 aspect-h-9">

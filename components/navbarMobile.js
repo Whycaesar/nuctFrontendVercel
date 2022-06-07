@@ -9,7 +9,7 @@ export default function NavbarMobile() {
         console.log(open)
         return (open % 2 == 1) ?
 
-            (setShowNavbar("h-80 "), setOpen(open + 1))
+            (setShowNavbar("h-96 "), setOpen(open + 1))
             :
             (setShowNavbar("h-20 "), setOpen(open + 1));        
     }
@@ -17,7 +17,7 @@ export default function NavbarMobile() {
     const noOpenNavBar = () => setOpen(open + 0);
     return (
         <>
-            <div className={showNavbar + "md:hidden transition-height duration-500 ease-in-out p-5 flex flex-col justify-end items-center"}>
+            <div className={showNavbar + "md:hidden h transition-height duration-500 ease-in-out p-5 flex flex-col justify-end items-center"}>
                 <Link href={{ pathname: '/' }}>
                     <a className="text-secondary leading-10 tracking-wider text-lg opacity-70 block" onClick={openNavBar}>
                         HOME
@@ -26,6 +26,11 @@ export default function NavbarMobile() {
                 <Link href={{ pathname: '/about' }}>
                     <a className="text-secondary leading-10 tracking-wider text-lg opacity-70 block" onClick={openNavBar}>
                         ABOUT
+                    </a>
+                </Link>
+                <Link href={{ pathname: '/artists' }}>
+                    <a className="text-secondary leading-10 tracking-wider text-lg opacity-70 block" onClick={openNavBar}>
+                        ARTISTS
                     </a>
                 </Link>
                 <Link href={{ pathname: '/accousticroom' }}>
