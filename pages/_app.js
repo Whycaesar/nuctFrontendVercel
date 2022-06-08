@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
 import Layout from '../components/layout';
 import { useRouter } from 'next/router';
-
+import '../styles.css'
 import { Progress } from '../components/progress';
 import { useProgressStore } from '../store';
 

@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import MarkdownIt from 'markdown-it'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import React, { Component } from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 
 
 export default function Home() {
@@ -21,17 +21,51 @@ export default function Home() {
         <meta property="og:description" content={process.env.SITETITLE + " specialize in commercials"} />
       </Head>
 
-      <div className='bg-yellow-400 h-full'>
-        <div className="flex flex-col bg-yellow-400 w-full text-center font-serif h-full">
-        <div className='static bg-white'>
-          <div className='h-screen bg-green-500 static min-w-full left-0'>
-            <div className='absolute h-screen min-w-full  left-0 bg-indigo-800'>Carousel
-            <a href="https://www.instagram.com/stories/highlights/17935669600095224/">haha</a>
+
+      <div className='h-full'>
+        <div className="flex flex-col w-full text-center font-serif h-full">
+          <div className='static'>
+            <div className='h-screen static min-w-full left-0'>
+              <div className='carousel-home absolute h-screen bg-gray-300 dark:bg-black min-w-full  left-0'>
+                <Carousel className='h-screen font-pre tracking-wider' autoPlay infiniteLoop statusFormatter={() => null}>
+                  <a href='https://www.instagram.com/stories/highlights/17899694827766203/' target='_blank'>
+                    <div>
+                      <img src="Nuct.png" className='max-h-screen max-w-screen-xl pt-8' alt="Nuct" />
+                      <div className='legend p-0 m-0 bg-white'>
+                        <p className="h-12 pt-4 leading-4 text-4xl">NUCT</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href='https://www.instagram.com/stories/highlights/17887339016210418/' target='_blank'>
+                    <div>
+                      <img src="NR2.png" className='max-h-screen max-w-screen-xl' alt="Nuct Records" />
+                      <div className='legend p-0 m-0 bg-white'>
+                        <p className="h-12 pt-4 leading-4 text-4xl">NUCT RECORDS</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href='https://www.tokopedia.com/nuct' target='_blank'>
+                    <div>
+                      <img src="NuctGlobeWhite.png" className='max-h-screen max-w-screen-lg' alt="merchandise" />
+                      <div className='legend p-0 m-0 bg-white'>
+                        <p className="h-12 pt-4 leading-4 text-4xl">MERCHANDISE</p>
+                      </div>
+                    </div>
+                  </a>
+
+                  <a href='https://www.instagram.com/stories/highlights/17913363769238367/' target='_blank'>
+                    <div>
+                      <img src="AcoustikRoom.png" className='max-h-screen max-w-screen-xl pt-36' alt="Accoustic Room" />
+                      <div className='legend p-0 m-0 bg-white'>
+                        <p className="h-12 pt-4 leading-4 text-4xl">AKUSTIK ROOM</p>
+                      </div>
+                    </div>
+                  </a>
+                </Carousel>
+              </div>
+
             </div>
-          </div>
-          <div className='h-16 bg-green-500 static min-w-full left-0'>
-            <div className='absolute min-w-full h-16 left-0 bg-gray-800'>Description</div>
-          </div>
+
           </div>
           <div className='relative'>
             <div className='h-full bg-green-600 flex flex-row'>
