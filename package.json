@@ -11,6 +11,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "@tanem/react-nprogress": "^5.0.0",
     "@types/react": "^17.0.31",
+    "instafeed.js": "^2.0.0-rc3",
     "markdown-it": "^12.2.0",
     "next": "latest",
     "next-sitemap": "^1.6.192",

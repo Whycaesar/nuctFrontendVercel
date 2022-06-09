@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.carousel-home .carousel .control-prev.control-arrow{
+.carousel-home .carousel .control-prev.control-arrow {
     /* background-color: red; */
     height: 40px;
     width: 40px;
@@ -22,7 +22,7 @@
     border-right: 15px solid gray;
 }
 
-.carousel-home .carousel .control-next.control-arrow{
+.carousel-home .carousel .control-next.control-arrow {
     /* background-color: red; */
     height: 40px;
     width: 40px;
@@ -38,21 +38,28 @@
     border-left: 15px solid gray;
 }
 
-.carousel-home .carousel .control-dots .dot{
+.carousel-home .carousel .control-dots .dot {
     height: 18px;
     width: 18px;
     background-color: gray;
 }
 
-.carousel-home .carousel .control-dots .dot.selected{
+.carousel-home .carousel .control-dots .dot.selected {
     height: 16px;
     width: 16px;
     background-color: white;
 }
 
-.carousel-home .carousel .control-dots .dot:hover{
+.carousel-home .carousel .control-dots .dot:hover {
     height: 18px;
     width: 18px;
     background-color: white;
 }
 
+#instafeed-container a img {
+    box-sizing: border-box;
+    height: 340px;
+    width: 340px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

@@ -29,7 +29,7 @@ export default function Artist({ artist }) {
                         <li className="mr-3">CV</li>
                     </ol>
                 </div>
-                <div className="min-h-full flex flex-col md:flex-row flex-w flex-wrap my-12">
+                <div className="min-h-full flex flex-col md:flex-row flex-wrap my-12">
                     {
                         videoData.map((artist, index) => (
                             <div className='md:w-1/3 md:my-3'>

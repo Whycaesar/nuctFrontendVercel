@@ -1,9 +1,10 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
-    static async getInitialProps(ctx) {
-        const originalRenderPage = ctx.renderPage
+
     
+    static async getInitialProps(ctx) {
+        const originalRenderPage = ctx.renderPage        
         ctx.renderPage = () =>
           originalRenderPage({
             // useful for wrapping the whole react tree
@@ -20,6 +21,8 @@ class MyDocument extends Document {
     
 
     render() {
+
+        
         return (
             <Html lang="en">
                 <Head>
